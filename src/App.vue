@@ -1,14 +1,9 @@
 <template>
   <div id="easy-chat"
        class="bg-yellow-200 flex container mx-auto my-24  w-3/4 h-2/3">
-    <div class="bg-pink-400 h-full w-1/6  container flex flex-col justify-around">
-    
-    <van-image
-  round
-  fit="cover"
-  class="h-10 w-10 mx-auto cursor-pointer"
-  src="https://img.yzcdn.cn/vant/cat.jpeg"
-/>
+    <div class="bg-pink-400 relative h-full w-1/6  container flex flex-col justify-around ">
+
+      <user-profile></user-profile>
       <router-link to="/"
                    class="block border-2 rounded-full h-10 w-10 mx-auto  cursor-pointer">聊天列表</router-link>
       <router-link to="/friend"
@@ -24,9 +19,12 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-
+import UserProfile from "./components/UserProfile.vue";
 export default defineComponent({
   name: "App",
+  components: {
+    UserProfile,
+  },
 });
 </script>
 <style >
