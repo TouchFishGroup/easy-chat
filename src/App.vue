@@ -1,11 +1,15 @@
 <template>
-<div class="flex justify-center h-screen bg-purple-400">
-    <form class="  self-center border ">
-      <input class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent ...">
-      <button class="bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50 ...">
-        Sign up
-      </button>
-    </form>
+  <div id="easy-chat" class="bg-yellow-200 flex container mx-auto my-24 w-3/4 h-2/3 overflow-hidden">
+    <div class="bg-pink-400 h-full w-1/6 flex flex-col justify-between">
+      <div class="block border-2 rounded-full h-10 w-10 cursor-pointer">头像</div>
+      <router-link to="/" class="block border-2 rounded-full h-10 w-10 cursor-pointer">聊天列表</router-link>
+      <router-link to="/friend" class="block border-2 rounded-full h-10 w-10 cursor-pointer">通讯录</router-link>
+    </div>
+    <div class="bg-red-600 h-full w-1/3">
+      <input>
+      <router-view></router-view>
+    </div>
+    <div class="bg-green-100 h-full w-1/2">3</div>
   </div>
 </template>
 
@@ -16,7 +20,10 @@ export default defineComponent({
   name: 'App'
 })
 </script>
-
-<style>
-
+<style >
+  body,html {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    }
 </style>
