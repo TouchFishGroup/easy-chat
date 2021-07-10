@@ -5,7 +5,7 @@
     round
                fit="cover"
                class="h-10 w-10  cursor-pointer"
-               src="https://img.yzcdn.cn/vant/cat.jpeg"
+               :src='userList.avatarImg'
                @click.prevent='toggleOpen' />
   </div>
   <teleport to="#app">
@@ -14,11 +14,11 @@
          :style="{left:x+ 'px',top:y+ 'px'}"
          >
       <div class="h-1/2 w-full py-1 flex justify-around">
-        <h1 class="display my-3">用户名</h1>
+        <h1 class="display my-3">{{userList.name}}</h1>
         <van-image round
                    fit="cover"
                    class="h-14 w-14"
-                   src="https://img.yzcdn.cn/vant/cat.jpeg" />
+                   :src="userList.avatarImg" />
       </div>
       <div class="h-1/2 w-full py-1 flex justify-around">
         <van-button plain
@@ -33,14 +33,25 @@
   </teleport>
 </template>
 <script lang="ts">
-import { defineComponent, onMounted, ref, watch } from "vue";
+import { computed, defineComponent, onMounted, reactive, ref, watch } from "vue";
+import {useStore} from 'vuex'
+import {GlobalDataProps,UserProps} from '../store'
 import useClickOutside from "../hooks/useClickOutside";
 import useGetPosition from "../hooks/useGetPosition";
+import axios from 'axios';
 export default defineComponent({
-  setup() {
+   setup () {
     const isOpen = ref(false);
     const x = ref(0)
     const y = ref(0)
+    // const store = useStore<GlobalDataProps>()
+    // const userList= computed(():UserProps=>store.state.user)
+    const userList = reactive({name:'',avatarImg:''})
+    axios.get('/auth').then((res)=>{
+      const {name ,avatarImg} = res.data;
+      userList.name=name;
+      userList.avatarImg=avatarImg;
+    })
     onMounted(()=>{
      x.value =  useGetPosition().x1
      y.value =  useGetPosition().y1
@@ -55,11 +66,13 @@ export default defineComponent({
         isOpen.value = false;
       }
     });
+    console.log(userList)
     return {
       isOpen,
       toggleOpen,
       dropdownRef,
-      x,y
+      x,y,
+      userList
     };
   },
 });
