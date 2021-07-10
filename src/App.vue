@@ -1,7 +1,7 @@
 <template>
   <div id="easy-chat"
        class="bg-black flex container mx-auto my-24  w-3/4 h-2/3 border-2 rounded border-black">
-    <div  class="bg-gray-700 relative h-full w-1/6  container flex flex-col justify-around  ">
+    <div  class="bg-gray-700 relative h-full w-1/6  container flex flex-col justify-around  max-w-80px" >
 
       <user-profile></user-profile>
       <router-link to="/"
@@ -9,7 +9,7 @@
       <router-link to="/friend"
                    class="block  h-10 w-10 mx-auto cursor-pointer"><van-icon name="https://b.yzcdn.cn/vant/icon-demo-1126.png" size="2.5rem" /></router-link>
     </div>
-    <div class="bg-red-600 h-full w-1/3">
+    <div class="bg-red-600 h-full w-1/3 flex-grow">
       <form action="/">
   <van-search
     v-model="searchValue"
@@ -22,7 +22,7 @@
 </form>
       <router-view></router-view>
     </div>
-    <div class="bg-green-100 h-full w-1/2">3</div>
+    <div class="bg-green-100 h-full w-1/2 flex-grow">3</div>
   </div>
 </template>
 

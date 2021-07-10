@@ -2,13 +2,16 @@ module.exports = {
   purge: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   darkMode: false, // or 'media' or 'class'
   theme: {
+    maxWidth: {
+      '80px': '80px',
+    },
     extend: {},
     container: {
-      center: true
-    }
+      center: true,
+    },
   },
   variants: {
-    extend: {}
+    extend: {},
   },
-  plugins: []
-}
+  plugins: [],
+};
