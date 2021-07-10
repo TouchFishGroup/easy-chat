@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import axios from 'axios'
-import { Image as VanImage } from 'vant'//头像图片
+import { Image as VanImage } from 'vant'//头像图片 嘿嘿嘿 我试试github切换回来没有
 import { Button } from 'vant';//按钮
 import {Icon} from 'vant' //图标
 import { Search } from 'vant'//搜索框
