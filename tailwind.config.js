@@ -4,14 +4,15 @@ module.exports = {
   theme: {
     maxWidth: {
       '80px': '80px',
+      max: 'max-content;'
     },
     extend: {},
     container: {
-      center: true,
-    },
+      center: true
+    }
   },
   variants: {
-    extend: {},
+    extend: {}
   },
-  plugins: [],
-};
+  plugins: []
+}

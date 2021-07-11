@@ -1,11 +1,11 @@
 <template>
-  <form class="validate-form-container">
+  <form class="overflowy-auto overflow-x-hidden">
     <slot name="default"></slot>
-    <div class="submit-area"
+    <div 
          @click.prevent="submitForm">
-      <slot name="submit">
+      <slot name="submit" >
         <button type="submit"
-                class="btn btn-primary">提交</button>
+                >提交</button>
       </slot>
     </div>
   </form>

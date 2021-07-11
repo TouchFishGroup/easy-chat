@@ -1,8 +1,8 @@
 <template>
-  <div class="validate-input-container pb-3">
+  <div class="p-1">
     <input
-      class="form-control"
-      :class="{ 'is-invalid': inputRef.error }"
+      class="focus:outline-none focus:ring focus:border-blue-300 px-1 border-1 rounded border-black block mx-4"
+      :class="{ 'text-red-500': inputRef.error }"
       id="exampleInputEmail1"
       @blur="validateInput"
       v-model="inputRef.val"
@@ -12,7 +12,7 @@
     <!--       @input="updateValue"
       用v-model代替
      -->
-    <span v-if="inputRef.error" class="invalid-feedback">{{
+    <span v-if="inputRef.error" class="block text-red-500 mx-1 italic">*{{
       inputRef.message
     }}</span>
   </div>
@@ -62,6 +62,9 @@ export default defineComponent({
             case 'email':
               passed = emailReg.test(inputRef.val)
               break
+            case 'custom':
+              passed = rule.validator ? rule.validator() : true
+              break
             default:
               break
           }
@@ -83,3 +86,9 @@ export default defineComponent({
   }
 })
 </script>
+
+<style>
+ .border-1 {
+   border-width: 1px;
+ }
+</style>
