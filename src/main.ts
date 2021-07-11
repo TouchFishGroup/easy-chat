@@ -11,8 +11,6 @@ import './index.css'
 
 // 替换 baseURL
 axios.defaults.baseURL = 'http://81.70.81.69:3000/'
-// axios.get('/auth')
-      // .then((res)=>{console.log(res)})
 const app = createApp(App)
 
 app.use(router)
